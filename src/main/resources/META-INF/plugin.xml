@@ -1,0 +1,40 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>dev.gaphunter.circulardependencycompanion</id>
+    <name>Circular Dependency Companion</name>
+    <vendor>Gap Hunter Labs</vendor>
+    <description><![CDATA[
+        <p>Visualizes the dependency graph between <b>modules</b> of a
+        multi-module Gradle or Maven project, and highlights real
+        circular dependencies when they exist -- module/build-system
+        level, not file/class-level "circular import" (already covered
+        by other tools).</p>
+        <p><b>Gradle:</b> parses <code>settings.gradle(.kts)</code> for
+        declared <code>include(...)</code> modules, and each module's
+        own <code>build.gradle(.kts)</code> for
+        <code>project(":...")</code> dependency references
+        (<code>implementation</code>, <code>api</code>,
+        <code>compileOnly</code>, <code>testImplementation</code>, and
+        other common configurations). Both Groovy and Kotlin DSL are
+        supported.</p>
+        <p><b>Maven:</b> parses each <code>pom.xml</code>'s
+        <code>&lt;modules&gt;</code> and cross-references
+        <code>&lt;dependency&gt;</code> entries whose
+        <code>groupId:artifactId</code> matches another module in the
+        same project.</p>
+        <p>100% static text/XML analysis of files already open in your
+        project -- no Gradle daemon, no Maven reactor build, no network
+        call. A single-module project (no submodules declared) is
+        reported honestly as "no cycles possible", never an empty,
+        unexplained tool window.</p>
+        <p>Free. No license nags, no telemetry, no popups.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Module Dependencies"
+                    anchor="bottom"
+                    factoryClass="dev.gaphunter.circulardependencycompanion.toolwindow.CircularDependencyToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
