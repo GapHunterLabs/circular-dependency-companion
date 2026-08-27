@@ -17,6 +17,7 @@ import com.intellij.util.ui.JBUI
 import dev.gaphunter.circulardependencycompanion.graph.ProjectAnalysisResult
 import dev.gaphunter.circulardependencycompanion.graph.ProjectGraphAnalyzer
 import dev.gaphunter.circulardependencycompanion.model.BuildSystem
+import dev.gaphunter.circulardependencycompanion.review.ReviewPrompt
 import java.awt.BorderLayout
 import java.awt.Color
 import java.awt.Component
@@ -64,7 +65,13 @@ class CircularDependencyToolWindow(private val project: Project, toolWindow: Too
 
     private fun buildToolbar(toolWindow: ToolWindow): ActionToolbar {
         val refreshAction = object : AnAction("Refresh", "Re-scan the project's build files", AllIcons.Actions.Refresh) {
-            override fun actionPerformed(e: AnActionEvent) = runAnalysis()
+            override fun actionPerformed(e: AnActionEvent) {
+                // Only an explicit Refresh click counts as real use --
+                // never the initial analysis run in init{} when the tool
+                // window first opens (that's passive, not a deliberate action).
+                ReviewPrompt.recordHit(project)
+                runAnalysis()
+            }
         }
         val group = DefaultActionGroup(refreshAction)
         val toolbar = ActionManager.getInstance()
