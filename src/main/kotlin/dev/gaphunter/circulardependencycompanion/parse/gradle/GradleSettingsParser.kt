@@ -4,9 +4,8 @@ package dev.gaphunter.circulardependencycompanion.parse.gradle
  * Extracts declared module paths (`:module`, `:group:module`, ...) from
  * the text of a `settings.gradle`/`settings.gradle.kts` file. Same
  * "hand-rolled scanner over a small, stable, line-oriented syntax"
- * pattern as `DockerfileParser`/`NginxLexer` (`CONSTITUTION.md` §6) --
- * this is 100% static text analysis, never a real Gradle
- * evaluation/daemon.
+ * pattern as `DockerfileParser`/`NginxLexer` -- this is 100% static
+ * text analysis, never a real Gradle evaluation/daemon.
  *
  * Covers both DSL flavors with the same two regexes, because the
  * syntax difference between them is minor for this one statement:

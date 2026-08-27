@@ -42,9 +42,8 @@ import javax.swing.tree.DefaultTreeModel
  * dependency declaration is added/removed/edited and saved -- the
  * refresh action itself already runs off the EDT (see [runAnalysis]),
  * same "heavy computation off the EDT, `invokeLater` for the UI
- * update" discipline as every other plugin in this catalog
- * (`CONSTITUTION.md` §6), so a manual trigger costs nothing extra to
- * add.
+ * update" discipline as every other plugin in this catalog, so a
+ * manual trigger costs nothing extra to add.
  */
 class CircularDependencyToolWindow(private val project: Project, toolWindow: ToolWindow) {
 
