@@ -14,7 +14,7 @@ import java.io.File
  * ([GradleBuildFileParser]) for `project(":...")` references. Pure
  * filesystem + text reads -- no Gradle daemon, no build evaluation,
  * same static-analysis-only principle as every other parser in this
- * catalog (`CONSTITUTION.md` §6).
+ * catalog.
  *
  * A project with no `settings.gradle(.kts)` at all, or one whose
  * `include(...)` list is empty, is a **single-module project** --

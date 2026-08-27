@@ -11,7 +11,7 @@ build, no network call.
 ## Why it exists
 
 An original idea, not a port of an existing competitor — validated
-against `CONSTITUTION.md` §1's "Plan B permanente" discipline before
+against this catalog's own idea-validation discipline before
 being built: (1) confirmed no plugin in this catalog or in JetBrains
 Marketplace does exactly this (results for `"circular dependency
 java"` are generic architecture visualizers or package analyzers, none
@@ -159,7 +159,7 @@ without redoing the graph logic.
   (module declarations, `project(...)` references) — no completion, no
   syntax highlighting, no PSI tree required. Same "hand-roll over new
   dependency, small stable surface" principle already proven in this
-  catalog (`CONSTITUTION.md` §6): `NginxLexer` for nginx config,
+  catalog: `NginxLexer` for nginx config,
   `DockerfileParser` for Dockerfiles, now this for the one Gradle DSL
   statement shape this plugin needs.
 - **Maven POMs parsed with the JDK's own XML DOM parser**, per the
@@ -181,8 +181,7 @@ without redoing the graph logic.
   and computing the graph runs on a pooled thread
   (`executeOnPooledThread`); only the final `Tree` update happens on
   the EDT (`SwingUtilities.invokeLater`) — same discipline as every
-  highlighting pass and tool window in this catalog
-  (`CONSTITUTION.md` §6).
+  highlighting pass and tool window in this catalog.
 - **Manual refresh, not a file-change listener wired to every
   keystroke.** The graph only meaningfully changes when a module
   dependency declaration is added, removed, or edited *and saved* —
