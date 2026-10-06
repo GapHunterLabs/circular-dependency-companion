@@ -1,6 +1,6 @@
 # Privacy Policy — Circular Dependency Companion
 
-**Effective date:** 2026-08-19
+**Effective date:** 2026-10-06
 
 Circular Dependency Companion is a Gap Hunter Labs plugin for
 IntelliJ Platform IDEs. This policy is short because the plugin's
@@ -9,13 +9,18 @@ below.
 
 ## What this plugin collects
 
-**Nothing.** Circular Dependency Companion does not collect, store,
-transmit, or sell any data — no source code, no file contents, no file
+**Nothing.** Circular Dependency Companion does not collect, transmit, or sell any data — no source code, no file contents, no file
 paths, no usage analytics, no telemetry, no crash reports, no
 personally identifiable information. Build file text
 (`settings.gradle(.kts)`, `build.gradle(.kts)`, `pom.xml`) read from
 your local project exists only in memory for as long as the IDE is
 open, and only long enough to compute the module dependency graph.
+
+## What it keeps on your machine
+
+To decide when to show its one-time rating prompt, the plugin keeps two values
+in the IDE's own settings on your computer: how many findings it has shown and
+whether you have answered the prompt. Neither is ever sent anywhere.
 
 ## Network access
 
