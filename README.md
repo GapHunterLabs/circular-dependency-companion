@@ -10,22 +10,7 @@ build, no network call.
 
 ## Why it exists
 
-An original idea, not a port of an existing competitor — validated
-against this catalog's own idea-validation discipline before
-being built: (1) confirmed no plugin in this catalog or in JetBrains
-Marketplace does exactly this (results for `"circular dependency
-java"` are generic architecture visualizers or package analyzers, none
-focused specifically on build-module cycles); (2) confirmed buildable
-in the ~10-day budget with techniques this catalog already has proven
-— a hand-rolled text/regex parser for Gradle DSL (same pattern as
-`NginxLexer`/`DockerfileParser`), the JDK's own XML parser for Maven
-POMs, a textbook directed-graph cycle detector, and the
-`Tree`/`DefaultMutableTreeNode` tool-window pattern already shipped
-twice in this catalog (`xsd-companion`, `gitlab-ci-companion`). Same
-"apuesta consciente sin ancla de mercado" treatment as Refactor
-Simulator / Test Scaffold Companion / Dockerfile Layer Size Companion:
-v0.1 ships free, no time/marketing investment disproportionate to real
-demand signal until there's evidence of adoption.
+An original idea, not a port of an existing competitor. Before building it I confirmed that no plugin in JetBrains Marketplace does exactly this: results for `"circular dependency java"` are generic architecture visualizers or package analyzers, none focused on cycles between build modules. It parses the Gradle DSL with plain text and regex, reads Maven POMs with the JDK's own XML parser, finds cycles with a standard directed-graph search and shows them in a tree tool window, the same pattern as `xsd-companion` and `gitlab-ci-companion`. It is free.
 
 ## What it does
 
@@ -129,10 +114,9 @@ document:
   positions and drawn edge lines, or an embedded graph-layout library)
   would show the graph in the most visually familiar shape, but
   edge-routing and overlap-avoidance for an arbitrary module graph is
-  a real layout-algorithm problem on its own — meaningfully larger and
-  riskier scope than a ~10-day budget comfortably supports, and no
-  plugin in this catalog has shipped this kind of renderer yet (no
-  proven `verifyPlugin` track record to build on).
+  a real layout-algorithm problem on its own, meaningfully larger and
+  riskier in scope than this plugin needs, and no plugin in this
+  catalog has shipped this kind of renderer yet.
 - **A layered, indented tree** (`Tree`/`DefaultMutableTreeNode`, the
   exact mechanism `xsd-companion`'s Structure tool window and
   `gitlab-ci-companion`'s pipeline tool window already ship, both
